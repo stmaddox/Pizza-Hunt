@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(require("./routes"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27107/pizza-hunt",
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/pizza-hunt",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -19,6 +19,6 @@ mongoose.connect(
 );
 
 //use this to log mongo queries being executed
-mongo.set("debug", true);
+mongoose.set("debug", true);
 
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
